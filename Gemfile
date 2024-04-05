@@ -50,9 +50,7 @@ group :development, :test do
 
   # Add RSpec for testing
   gem "rspec-rails"
-
   gem "pry-rails"
-
   gem 'rubocop', require: false
 end
 
@@ -71,4 +69,5 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "shoulda-matchers"
 end
