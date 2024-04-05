@@ -10,6 +10,9 @@
 # Ignore all environment files (except templates).
 /.env*
 !/.env*.erb
+.rspec
+/coverage/
+/spec/tmp
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -32,4 +35,9 @@
 /public/assets
 
 # Ignore master key for decrypting credentials and more.
-/config/master.key
+config/master.key
+
+
+/vendor/bundle
+app/.DS_Store
+.DS_Store

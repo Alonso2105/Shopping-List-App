@@ -50,6 +50,10 @@ group :development, :test do
 
   # Add RSpec for testing
   gem "rspec-rails"
+
+  gem "pry-rails"
+
+  gem 'rubocop', require: false
 end
 
 group :development do
