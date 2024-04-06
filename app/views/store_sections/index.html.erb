@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Store sections</h1>
+
+<div id="store_sections">
+  <% @store_sections.each do |store_section| %>
+    <%= render store_section %>
+    <p>
+      <%= link_to "Show this store section", store_section %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New store section", new_store_section_path %>

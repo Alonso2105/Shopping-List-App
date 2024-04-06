@@ -1,0 +1,25 @@
+<!-- app/views/products/index.html.erb -->
+<p style="color: green"><%= notice %></p>
+<div class="container is-fullhd">
+  <h2 class="has-text-centered has-text-weight-bold is-size-3 mb-4">Shopping List</h1>
+
+  <div class="columns is-centered">
+    <div class="column has-text-right">
+      <button id="open-modal-button" class="button is-primary">Add product</button>
+    </div>
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <%= render "form", product: @product %>
+    </div>
+    <button class="modal-close" aria-label="close"></button>
+  </div>
+
+  <div id="products">
+    <% @grouped_products.each do |date, products| %>
+      <%= render ProductGroupComponent.new(date: date, products: products) %>
+    <% end %>
+  </div>
+</div>

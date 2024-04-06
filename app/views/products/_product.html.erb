@@ -1,0 +1,25 @@
+<!-- app/views/products/_product.html.erb -->
+<div id="<%= dom_id product %>">
+  <table class="table is-fullwidth is-narrow is-hoverable is-striped">
+    <thead>
+      <tr>
+        <th>Store name</th>
+        <th>Store section</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="product-card">
+        <%= render ProductCardComponent.new(product: product) %>
+        <td>
+          <%= form_with(model: product, method: :patch, url: mark_as_purchased_product_path(product), remote: true) do |form| %>
+            <%= form.button "Marcar como comprado", class: "button is-primary" %>
+          <% end %>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  <!-- Agrega cualquier otra información del producto que desees mostrar aquí -->
+</div>

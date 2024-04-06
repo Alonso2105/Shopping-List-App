@@ -6,5 +6,13 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "products#index"
+
+  resources :products do
+    member do
+      patch 'mark_as_purchased', to: 'products#update'
+    end
+  end
+
+  resources :store_sections
 end

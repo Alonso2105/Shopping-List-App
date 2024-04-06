@@ -1,0 +1,68 @@
+<div class="columns is-centered">
+  <div class="column is-half">
+    <%= form_with(model: product, url: products_path, local: true, data: { turbo: 'false' }, html: { class: "box" }) do |form| %>
+      <% if product&.errors&.any? %>
+        <div class="notification is-danger">
+          <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+          <ul>
+            <% product.errors.full_messages.each do |error| %>
+              <li><%= error %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :name, class: "label" %>
+        <div class="control">
+          <%= form.text_field :name, class: "input", required: true , maxlength: 128,  pattern: "^[a-zA-Z0-9]*$" %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= form.label :purchase_date, class: "label" %>
+        <div class="control">
+          <%= form.date_field :purchase_date, class: "input", required: true %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= form.label :store_name, class: "label" %>
+        <div class="control">
+          <%= form.text_field :store_name, class: "input", maxlength: 64, list: "store_name_options" %>
+          <datalist id="store_name_options">
+            <% store_names.each do |store_name| %>
+              <option value="<%= store_name %>">
+            <% end %>
+          </datalist>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= form.label :store_section_name, class: "label" %>
+        <div class="control">
+          <%= form.text_field :store_section_name, class: "input", required: true, maxlength: 64, list: "store_section_options" %>
+          <datalist id="store_section_options">
+            <% store_section_names.each do |section_name| %>
+              <option value="<%= section_name %>">
+            <% end %>
+          </datalist>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= form.label :quantity, class: "label" %>
+        <div class="control">
+          <%= form.number_field :quantity, class: "input", required: true %>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="actions">
+          <%= form.submit class: "button is-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

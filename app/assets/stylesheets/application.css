@@ -12,4 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= require bulma
  */
+
+ .product-group th {
+  width: 20%; /* Establecer el ancho deseado para cada columna, asegurando que sumen el 100% */
+}
