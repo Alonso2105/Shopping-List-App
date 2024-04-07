@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-return unless StoreSecction.any?
+return unless StoreSection.any?
 
 products_by_store_secction = {
   meat: %w[Beef Chicken Pork Lamb Turkey],
@@ -18,17 +18,18 @@ products_by_store_secction = {
 }
 store_names = ['SuperMart', 'Fresh Foods', 'MarketBasket', 'CityMarket', 'Family Fare']
 
-StoreSecction.find_each do |store_section|
+StoreSection.find_each do |store_section|
   new_products = products_by_store_secction[store_section.name.downcase.to_sym]
   next unless new_products
 
   new_products.each do |product|
     Product.create(
       name: product,
-      purchase_date: Date.now,
+      purchase_date: Date.today,
       store_name: store_names.sample,
       store_section:,
-      quantity: rand(1..10)
+      quantity: rand(1..10),
+      purchased: false
     )
   end
 end
