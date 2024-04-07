@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Product < ApplicationRecord
   # associations
   belongs_to :store_section, dependent: :destroy
@@ -7,6 +9,6 @@ class Product < ApplicationRecord
   validates :purchase_date, presence: true
   validates :store_name, length: { maximum: 64 }
   validates :store_section_id, presence: true
-  validates :purchased, inclusion: { in: [true, false] } 
+  validates :purchased, inclusion: { in: [true, false] }
   validates :quantity, presence: true, numericality: { only_integer: true }
 end

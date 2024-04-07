@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class StoreSectionsController < ApplicationController
-  before_action :set_store_section, only: %i[ show edit update destroy ]
+  before_action :set_store_section, only: %i[show edit update destroy]
 
   # GET /store_sections or /store_sections.json
   def index
@@ -7,8 +9,7 @@ class StoreSectionsController < ApplicationController
   end
 
   # GET /store_sections/1 or /store_sections/1.json
-  def show
-  end
+  def show; end
 
   # GET /store_sections/new
   def new
@@ -16,8 +17,7 @@ class StoreSectionsController < ApplicationController
   end
 
   # GET /store_sections/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /store_sections or /store_sections.json
   def create
@@ -25,7 +25,7 @@ class StoreSectionsController < ApplicationController
 
     respond_to do |format|
       if @store_section.save
-        format.html { redirect_to store_section_url(@store_section), notice: "Store section was successfully created." }
+        format.html { redirect_to store_section_url(@store_section), notice: 'Store section was successfully created.' }
         format.json { render :show, status: :created, location: @store_section }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class StoreSectionsController < ApplicationController
   def update
     respond_to do |format|
       if @store_section.update(store_section_params)
-        format.html { redirect_to store_section_url(@store_section), notice: "Store section was successfully updated." }
+        format.html { redirect_to store_section_url(@store_section), notice: 'Store section was successfully updated.' }
         format.json { render :show, status: :ok, location: @store_section }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +52,20 @@ class StoreSectionsController < ApplicationController
     @store_section.destroy!
 
     respond_to do |format|
-      format.html { redirect_to store_sections_url, notice: "Store section was successfully destroyed." }
+      format.html { redirect_to store_sections_url, notice: 'Store section was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_store_section
-      @store_section = StoreSection.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def store_section_params
-      params.require(:store_section).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_store_section
+    @store_section = StoreSection.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def store_section_params
+    params.require(:store_section).permit(:name)
+  end
 end

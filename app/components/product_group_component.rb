@@ -12,4 +12,3 @@ class ProductGroupComponent < ViewComponent::Base
     I18n.l(@date, format: :default)
   end
 end
-

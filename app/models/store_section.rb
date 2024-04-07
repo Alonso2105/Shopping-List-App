@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StoreSection < ApplicationRecord
   # associations
   has_many :products
