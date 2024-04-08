@@ -21,12 +21,12 @@ Before you begin, make sure you have the following installed on your system:
 ## Project Settings
 1. Clone this repository to your local machine using the following command:
      ```
-     git clone https://github.com/tu_usuario/lista-de-compras.git
+     https://github.com/Alonso2105/Shopping-List-App.git
      ```
 
 2. Access the project directory:
      ```
-     cd shopping-list
+     cd Shopping-List-App
      ```
 
 3. Install the necessary gems using Bundler:
